@@ -1,5 +1,5 @@
 /* dark.css — paste at end of your global CSS, no markup changes needed */
-
+@import "tailwindcss";
 /* Design tokens */
 :root {
   color-scheme: dark;
