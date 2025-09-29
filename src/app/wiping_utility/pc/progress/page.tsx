@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 
 type LogItem = { t: string; msg: string };
 
@@ -202,13 +203,13 @@ export default function PcProgressPage() {
           {/* Footer actions (only after done) */}
           {done && (
             <div className="mt-4 flex flex-wrap items-center gap-2">
-              <a
+              <Link
                 href="/"
                 className="rounded-md border border-[#2e3b4f] bg-[#121821] px-4 py-2 text-xs text-[#e6eef8] hover:bg-[#1a2230]"
                 title="Skip certificate and continue"
               >
                 Continue without certificate
-              </a>
+              </Link>
 
               <button
                 onClick={() => setModalOpen(true)}
