@@ -1,26 +1,130 @@
-@import "tailwindcss";
+/* dark.css — paste at end of your global CSS, no markup changes needed */
 
+/* Design tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --bg: #0b0f13;
+  --card: #121821;
+  --elev: #0e141c;
+  --border: #243041;
+  --text: #e6eef8;
+  --muted: #a7b6c8;
+  --primary: #4ea1ff;
+  --primary-fg: #0b0f13;
+  --danger: #ef4444;
+  --danger-fg: #0b0f13;
+  --accent: #1e2937;
+  --accent-2: #17202b;
+  --ring: #72b6ff;
+  --shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 10px 28px rgba(0,0,0,0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base */
+html, body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+a { color: var(--primary) !important; }
+hr, .divider { border-color: var(--border) !important; }
+
+/* Page header/footer strips */
+header, footer {
+  background: color-mix(in oklab, var(--bg) 85%, black) !important;
+  border-color: var(--border) !important;
+}
+
+/* Generic card/panel containers (covers most UIs without changing markup) */
+:where(.card, .panel, .box, .widget, .tile, .container-card) {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow) !important;
+}
+:where(section, article)[class*="card"],
+:where(section, article)[class*="panel"] {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* Buttons (primary + danger + default) */
+:where(button, .btn, [role="button"]) {
+  background: var(--accent) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 0.55rem 1rem !important;
+  transition: filter .15s ease, transform .02s ease;
+}
+:where(button, .btn):hover { filter: brightness(1.08); }
+:where(button, .btn):active { transform: translateY(1px); }
+
+:where(.btn-primary, .primary, [data-variant="primary"], .button-primary) {
+  background: var(--primary) !important;
+  color: var(--primary-fg) !important;
+  border-color: color-mix(in oklab, var(--primary), black 25%) !important;
+}
+:where(.btn-danger, .danger, [data-variant="danger"], .btn-red, .button-danger) {
+  background: var(--danger) !important;
+  color: var(--danger-fg) !important;
+  border-color: color-mix(in oklab, var(--danger), black 25%) !important;
+}
+
+/* Badges, pills */
+:where(.badge, .pill, .tag) {
+  background: var(--accent-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Tables */
+table {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-collapse: collapse !important;
+  width: 100%;
+}
+thead { background: color-mix(in oklab, var(--accent), black 10%) !important; }
+thead th {
+  color: var(--muted) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+tbody tr { border-top: 1px solid var(--border) !important; }
+tbody tr:hover { background: color-mix(in oklab, var(--accent), black 8%) !important; }
+th, td { padding: .75rem 1rem !important; }
+
+/* Forms */
+:where(input, select, textarea) {
+  background: var(--elev) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+}
+:where(input, select, textarea):focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring), transparent 70%) !important;
+  border-color: var(--ring) !important;
+}
+
+/* Lists and subtle text */
+:where(.muted, .subtle, .help, .caption, .text-muted) { color: var(--muted) !important; }
+
+/* Shadows and borders fallback on common containers */
+:where(.box, .panel, .card, .widget, .table-wrapper, .actions, .dashboard, .devices) {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+}
+
+/* Utility: subtle separators inside cards */
+:where(.card, .panel) > :where(h1,h2,h3) + * {
+  border-top: 1px solid color-mix(in oklab, var(--border), transparent 40%) !important;
+}
+
+/* Optional: honor system dark mode if the project switches themes elsewhere */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  :root { color-scheme: dark; }
 }
