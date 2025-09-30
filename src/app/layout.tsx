@@ -35,7 +35,7 @@ export default function RootLayout({
                   🔒
                 </div>
                 <span className="text-lg font-semibold text-white">
-                  SecureWipe Pro
+                  BitWiperz
                 </span>
               </div>
                 </Link>
@@ -69,7 +69,7 @@ export default function RootLayout({
           {/* Footer */}
           <footer className="border-t border-gray-800 bg-[#0a111d]">
             <div className="max-w-7xl mx-auto px-6 py-6 text-center text-xs text-gray-500">
-              © {new Date().getFullYear()} SecureWipe Pro. All rights reserved.
+              © {new Date().getFullYear()} BitWiperz. All rights reserved.
             </div>
           </footer>
         </div>
