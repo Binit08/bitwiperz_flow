@@ -29,6 +29,7 @@ export default function RootLayout({
           <header className="border-b border-gray-800 bg-[#0f1c2e]/80 backdrop-blur-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
               {/* Logo */}
+                <Link href="/">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-md bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold">
                   🔒
@@ -37,19 +38,17 @@ export default function RootLayout({
                   SecureWipe Pro
                 </span>
               </div>
+                </Link>
 
               {/* Nav Links */}
               <nav className="flex gap-8 text-sm font-medium">
-                <Link href="#features" className="hover:text-cyan-400 transition-colors">
-                  Features
-                </Link>
-                <a href="#compliance" className="hover:text-cyan-400 transition-colors">
+                <Link href="/compliance" className="hover:text-cyan-400 transition-colors">
                   Compliance
-                </a>
+                </Link>
 <Link href="/demo" className="hover:text-cyan-400 transition-colors">
   Demo
 </Link>
-                <Link href="#contact" className="hover:text-cyan-400 transition-colors">
+                <Link href="/contact" className="hover:text-cyan-400 transition-colors">
                   Contact
                 </Link>
               </nav>
