@@ -25,30 +25,6 @@ export default function ContactPage() {
       )}
 
       <form
-        onSubmit={async (e) => {
-          e.preventDefault();
-          setSubmitting(true);
-          setSubmitResult(null);
-          try {
-            const res = await fetch('/api/contact', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, message }),
-            });
-            if (!res.ok) {
-              const data = await res.json().catch(() => ({}));
-              throw new Error((data && data.error) || 'Failed to submit');
-            }
-            setName('');
-            setEmail('');
-            setMessage('');
-            setSubmitResult({ ok: true, msg: 'Thanks! Your message has been sent.' });
-          } catch (err: any) {
-            setSubmitResult({ ok: false, msg: err?.message || 'Something went wrong. Please try again.' });
-          } finally {
-            setSubmitting(false);
-          }
-        }}
         className="grid grid-cols-1 gap-4"
       >
         <div>
