@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -29,9 +30,10 @@ export default function Home() {
 
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Link href="/demo" passHref>
         <button className="rounded-md bg-[#00a9e0] hover:bg-[#0095c4] px-6 py-3 text-white font-medium shadow-lg transition">
           ▶ Start Free Demo
-        </button>
+        </button></Link>
         <button className="rounded-md bg-gray-700 text-gray-400 px-6 py-3 font-medium cursor-not-allowed">
           Request Enterprise Access
         </button>
