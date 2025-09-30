@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 
+type SubmitResult = { ok: boolean; msg: string } | null; // Add this type
+
 export default function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<null | { ok: boolean; msg: string }>(null);
+  const [submitResult, setSubmitResult] = useState<SubmitResult>(null); // Use the type here
 
   return (
     <div className="max-w-2xl mx-auto py-16 px-6">
